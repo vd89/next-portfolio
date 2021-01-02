@@ -1,13 +1,25 @@
+import Link from "next/link";
+import Layout from "../Components/Layout";
+
+const PostLink = ({ slug, title }) => (
+  <li>
+    <Link as={`/${slug}`} href={`/post?title=${title}`}>
+      <a>
+        {title}
+      </a>
+    </Link>
+  </li>
+)
+
 const Blog = () => {
   return (
-    <div>
-      <h1>Blog Section</h1>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, voluptatibus officia. Animi quam aut officia
-        consequuntur vero voluptatum ullam laudantium magni sed totam. Est quam perspiciatis quo adipisci tenetur
-        obcaecati.
-      </p>
-    </div>
+    <Layout title='My Blog'>
+      <ul>
+        <PostLink slug='react-post' title='React Post' />
+        <PostLink slug='angular-post' title='Angular Post' />
+        <PostLink slug='vue-post' title='Vue Post' />
+      </ul>
+    </Layout>
   );
 };
 
